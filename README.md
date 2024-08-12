@@ -8,7 +8,7 @@ Achievement: The HTML and CSS were carefully structured to create a responsive l
 
 # Connect the Visual Seat Map to a Grid of Seats (Columns and Rows) to be Used for Booking
 
-Achievement: The seat map was designed using a grid layout, with each seat represented by a <div> element styled with CSS. Each row of seats was created as a row in the grid, allowing for easy mapping between the visual layout and a logical grid structure. 
+Achievement: The seat map was designed using a grid layout, with each seat represented by a div element styled with CSS. Each row of seats was created as a row in the grid, allowing for easy mapping between the visual layout and a logical grid structure. 
 
 This setup enables straightforward integration with backend booking systems.
 
