@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Theater Seat Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f7f7f7;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .screen {
+            background-color: #ccc;
+            height: 40px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .seat {
+            background-color: #444451;
+            height: 40px;
+            width: 40px;
+            margin: 3px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .seat:hover {
+            background-color: #666;
+        }
+
+        .seat.selected {
+            background-color: #6feaf6;
+        }
+
+        .seat.occupied {
+            background-color: #e60808;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+            .seat {
+                height: 35px;
+                width: 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .seat {
+                height: 30px;
+                width: 30px;
+            }
+        }
+
+        .summary {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .summary p {
+            margin: 5px 0;
+        }
+
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            display: none;
+        }
+
+        .modal.show {
+            display: block;
+        }
+
+        .modal h2 {
+            margin: 0 0 10px;
+            text-align: center;
+        }
+
+        .modal p {
+            margin: 5px 0;
+            text-align: center;
+        }
+
+        .modal button {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            background-color: #444451;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal button:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="screen">Screen</div>
+        <div class="row">
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat occupied" aria-label="Occupied seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+        </div>
+        <div class="row">
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+            <div class="seat occupied" aria-label="Occupied seat"></div>
+            <div class="seat"></div>
+            <div class="seat"></div>
+        </div>
+        <!-- Add more rows as needed -->
+        <div class="summary">
+            <p>Selected Seats: <span id="selected-count">0</span></p>
+            <p>Total Price: $<span id="total-price">0</span></p>
+            <button id="confirm-selection">Confirm Selection</button>
+        </div>
+    </div>
+
+    <div class="modal" id="confirmation-modal">
+        <h2>Confirm Your Booking</h2>
+        <p id="confirmation-message">You have selected <span id="modal-count">0</span> seats for a total price of $<span id="modal-price">0</span>.</p>
+        <button id="close-modal">Close</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
